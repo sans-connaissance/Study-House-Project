@@ -6,6 +6,11 @@
 //
 
 import Foundation
+
+enum InfoList: Int {
+  case utilities, cable
+}
+
 class House {
     var name = ""
     var address = ""

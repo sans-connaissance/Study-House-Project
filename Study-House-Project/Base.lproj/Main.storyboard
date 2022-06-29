@@ -32,7 +32,10 @@
                                                 <rect key="frame" x="55" y="0.0" width="319" height="34"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" textContentType="name"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="BYZ-38-t0r" id="mZn-7V-Wbx"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -49,7 +52,10 @@
                                                 <rect key="frame" x="72.5" y="0.0" width="301.5" height="34"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" textContentType="address-line1"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="BYZ-38-t0r" id="CEH-h8-0i0"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -58,6 +64,9 @@
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Save House"/>
+                                        <connections>
+                                            <action selector="saveHouseButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5mx-yP-Oal"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -70,10 +79,68 @@
                             <constraint firstItem="UWc-hQ-9yL" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="60" id="ckg-Dg-guW"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="addressTextField" destination="zc7-MG-tZx" id="6lX-OV-4Lk"/>
+                        <outlet property="nameTextField" destination="dHG-ye-MuL" id="zcp-Qy-Ngn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="128.98550724637681" y="83.705357142857139"/>
+        </scene>
+        <!--House View Controller-->
+        <scene sceneID="QPa-Pr-oa2">
+            <objects>
+                <viewController id="gpw-T3-rrO" customClass="HouseViewController" customModule="Study_House_Project" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9Z9-gc-1tC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="8TR-P1-8z0">
+                                <rect key="frame" x="87" y="312" width="240" height="272"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mym-m4-M9W">
+                                        <rect key="frame" x="0.0" y="0.0" width="41.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i2Y-69-1eT">
+                                        <rect key="frame" x="0.0" y="44.5" width="41.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UYv-bE-Vds">
+                                        <rect key="frame" x="0.0" y="89" width="240" height="128"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="UYv-bE-Vds" secondAttribute="height" multiplier="15:8" id="D9X-Uw-oxi"/>
+                                        </constraints>
+                                    </imageView>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Igf-bG-ZeT">
+                                        <rect key="frame" x="0.0" y="241" width="131" height="32"/>
+                                        <segments>
+                                            <segment title="First"/>
+                                            <segment title="Second"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="changeInfoListType:" destination="gpw-T3-rrO" eventType="valueChanged" id="cPf-P2-Wp9"/>
+                                        </connections>
+                                    </segmentedControl>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="eNk-tt-L1C"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="8TR-P1-8z0" firstAttribute="centerY" secondItem="9Z9-gc-1tC" secondAttribute="centerY" id="F2B-Dh-XJv"/>
+                            <constraint firstItem="8TR-P1-8z0" firstAttribute="centerX" secondItem="9Z9-gc-1tC" secondAttribute="centerX" id="w22-F1-zHx"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UML-gZ-TL1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="951" y="84"/>
         </scene>
     </scenes>
     <resources>
