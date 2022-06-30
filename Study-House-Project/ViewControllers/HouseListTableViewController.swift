@@ -13,19 +13,19 @@ class HouseListTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//
+//        let house1 = House()
+//        let house2 = House()
+//        let house3 = House()
         
-        let house1 = House()
-        let house2 = House()
-        let house3 = House()
-        
-        house1.name = "Ann Arbor"
-        house1.address = "1715 South BLVD, Ann Arbor MI, 48104"
-        house2.name = "Nice Apt"
-        house2.address = "8 Rue D'anglaterre, Nice 0600"
-        house3.name = "Cottage Row"
-        house3.address = "Path of Believers, Howell, MI"
-
-        houses = [house1, house2, house3]
+//        house1.name = "Ann Arbor"
+//        house1.address = "1715 South BLVD, Ann Arbor MI, 48104"
+//        house2.name = "Nice Apt"
+//        house2.address = "8 Rue D'anglaterre, Nice 0600"
+//        house3.name = "Cottage Row"
+//        house3.address = "Path of Believers, Howell, MI"
+//
+//        houses = [house1, house2, house3]
         
     }
 
@@ -57,5 +57,19 @@ class HouseListTableViewController: UITableViewController {
             }
             houseViewController.house = house
         }
+    }
+    
+    @IBAction func saveHouse(unwindSegue: UIStoryboardSegue) {
+        guard let houseViewController = unwindSegue.source as? HouseViewController,
+              let house = houseViewController.house else {
+            return
+        }
+        houses.append(house)
+        tableView.reloadData()
+    }
+    
+    @IBAction func cancelHouseSave(unwindSegue: UIStoryboardSegue) {
+        
+        
     }
 }

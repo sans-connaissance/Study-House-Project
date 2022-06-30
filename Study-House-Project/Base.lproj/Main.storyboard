@@ -162,7 +162,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="8TR-P1-8z0">
-                                <rect key="frame" x="107" y="248.5" width="200" height="399"/>
+                                <rect key="frame" x="107" y="276" width="200" height="344"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mym-m4-M9W">
                                         <rect key="frame" x="0.0" y="0.0" width="41.5" height="20.5"/>
@@ -193,25 +193,9 @@
                                             <action selector="changeInfoListType:" destination="gpw-T3-rrO" eventType="valueChanged" id="cPf-P2-Wp9"/>
                                         </connections>
                                     </segmentedControl>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="8uh-5C-pDS">
-                                        <rect key="frame" x="0.0" y="368" width="200" height="31"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qkE-Uj-g8G">
-                                                <rect key="frame" x="0.0" y="0.0" width="88" height="31"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="Discard"/>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fY1-Ob-eGi">
-                                                <rect key="frame" x="112" y="0.0" width="88" height="31"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="Save"/>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="Igf-bG-ZeT" firstAttribute="centerX" secondItem="8TR-P1-8z0" secondAttribute="centerX" id="8RD-ob-Tbz"/>
-                                    <constraint firstItem="8uh-5C-pDS" firstAttribute="centerX" secondItem="8TR-P1-8z0" secondAttribute="centerX" id="R8j-rv-LcA"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -228,15 +212,18 @@
                         <outlet property="addressLabel" destination="i2Y-69-1eT" id="j6g-TG-pRE"/>
                         <outlet property="houseImageView" destination="UYv-bE-Vds" id="o8l-RP-j9T"/>
                         <outlet property="nameLabel" destination="mym-m4-M9W" id="bTl-pN-2Pd"/>
+                        <segue destination="Y6q-Bm-BSj" kind="unwind" identifier="CancelHouse" unwindAction="cancelHouseSaveWithUnwindSegue:" id="gpK-Yu-efa"/>
+                        <segue destination="Y6q-Bm-BSj" kind="unwind" identifier="SaveHouse" unwindAction="saveHouseWithUnwindSegue:" id="GdS-bf-MHV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UML-gZ-TL1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="Y6q-Bm-BSj" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="228" y="469"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="WJ8-L6-Wke"/>
+        <segue reference="s1H-jd-GB5"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="house" catalog="system" width="128" height="106"/>

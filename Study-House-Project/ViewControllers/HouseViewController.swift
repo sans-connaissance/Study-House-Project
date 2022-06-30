@@ -9,15 +9,16 @@ import UIKit
 import PhotosUI
 
 class HouseViewController: UIViewController {
-
+    
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
     
     var house: House?
+    var isNewHouse = false
     
     @IBAction func changeInfoListType(_ sender: UISegmentedControl) {
         if let infoList = InfoList(rawValue: sender.selectedSegmentIndex) {
- 
+            
         }
     }
     
@@ -26,19 +27,32 @@ class HouseViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if isNewHouse {
+            let saveButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveHouse))
+            let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelHouse))
+            navigationItem.rightBarButtonItem = saveButton
+            navigationItem.leftBarButtonItem = cancelButton
+            
+        } else {
+            
+        }
+        
         houseImageView.isUserInteractionEnabled = true
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(changeImage))
         houseImageView.addGestureRecognizer(gestureRecognizer)
         nameLabel.text = house?.name
         addressLabel.text = house?.address
+        
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        navigationController?.setNavigationBarHidden(true, animated: animated)
+    
+    @objc func saveHouse() {
+        performSegue(withIdentifier: "SaveHouse", sender: nil)
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        navigationController?.setNavigationBarHidden(false, animated: animated)
+    @objc func cancelHouse() {
+        performSegue(withIdentifier: "CancelHouse", sender: nil)
     }
     
     @objc func changeImage() {
@@ -49,13 +63,12 @@ class HouseViewController: UIViewController {
         controller.delegate = self
         present(controller, animated: true)
     }
-
+    
 }
 
 extension HouseViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-
         return true
     }
 }

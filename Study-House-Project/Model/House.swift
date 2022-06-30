@@ -14,7 +14,6 @@ enum InfoList: Int {
 class House {
     var name = ""
     var address = ""
-    var isNewHouse = true
     
     func isValid() -> Bool {
         return !(name.isEmpty && address.isEmpty)

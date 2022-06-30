@@ -45,6 +45,7 @@ class AddHouseViewController: UIViewController {
                 return
             }
             houseViewController.house = house
+            houseViewController.isNewHouse = true
         }
     }
 }
