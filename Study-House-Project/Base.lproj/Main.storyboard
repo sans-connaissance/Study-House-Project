@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sWT-eF-nV8">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -8,16 +8,32 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="7uJ-ze-oqC">
+            <objects>
+                <navigationController id="sWT-eF-nV8" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="bK4-UN-I70">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="uig-HL-zaA"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eMq-sv-CAM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-838" y="106"/>
+        </scene>
+        <!--New House Prompt-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Study_House_Project" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="AddHouseViewController" customModule="Study_House_Project" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="UWc-hQ-9yL">
-                                <rect key="frame" x="20" y="104" width="374" height="143"/>
+                                <rect key="frame" x="20" y="148" width="374" height="143"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="UiM-kl-HJE">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="34"/>
@@ -65,7 +81,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Save House"/>
                                         <connections>
-                                            <action selector="saveHouseButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5mx-yP-Oal"/>
+                                            <segue destination="gpw-T3-rrO" kind="show" identifier="HouseEntry" id="UxI-Do-MP1"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -79,6 +95,7 @@
                             <constraint firstItem="UWc-hQ-9yL" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="60" id="ckg-Dg-guW"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="New House Prompt" id="yVD-hR-299"/>
                     <connections>
                         <outlet property="addressTextField" destination="zc7-MG-tZx" id="6lX-OV-4Lk"/>
                         <outlet property="nameTextField" destination="dHG-ye-MuL" id="zcp-Qy-Ngn"/>
@@ -86,7 +103,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="128.98550724637681" y="83.705357142857139"/>
+            <point key="canvasLocation" x="228" y="-302"/>
         </scene>
         <!--House View Controller-->
         <scene sceneID="QPa-Pr-oa2">
@@ -97,7 +114,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="8TR-P1-8z0">
-                                <rect key="frame" x="87" y="312" width="240" height="272"/>
+                                <rect key="frame" x="107" y="276" width="200" height="344"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mym-m4-M9W">
                                         <rect key="frame" x="0.0" y="0.0" width="41.5" height="20.5"/>
@@ -111,14 +128,15 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UYv-bE-Vds">
-                                        <rect key="frame" x="0.0" y="89" width="240" height="128"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="house" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="UYv-bE-Vds">
+                                        <rect key="frame" x="0.0" y="88" width="200" height="200"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="UYv-bE-Vds" secondAttribute="height" multiplier="15:8" id="D9X-Uw-oxi"/>
+                                            <constraint firstAttribute="height" constant="200" id="F5q-RL-0tp"/>
+                                            <constraint firstAttribute="width" constant="200" id="z4r-dr-RgB"/>
                                         </constraints>
                                     </imageView>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Igf-bG-ZeT">
-                                        <rect key="frame" x="0.0" y="241" width="131" height="32"/>
+                                        <rect key="frame" x="0.0" y="313" width="131" height="32"/>
                                         <segments>
                                             <segment title="First"/>
                                             <segment title="Second"/>
@@ -137,13 +155,21 @@
                             <constraint firstItem="8TR-P1-8z0" firstAttribute="centerX" secondItem="9Z9-gc-1tC" secondAttribute="centerX" id="w22-F1-zHx"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="5NA-ko-F57"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="addressLabel" destination="i2Y-69-1eT" id="j6g-TG-pRE"/>
+                        <outlet property="houseImageView" destination="UYv-bE-Vds" id="o8l-RP-j9T"/>
+                        <outlet property="nameLabel" destination="mym-m4-M9W" id="bTl-pN-2Pd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UML-gZ-TL1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="951" y="84"/>
+            <point key="canvasLocation" x="228" y="469"/>
         </scene>
     </scenes>
     <resources>
+        <image name="house" catalog="system" width="128" height="106"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
