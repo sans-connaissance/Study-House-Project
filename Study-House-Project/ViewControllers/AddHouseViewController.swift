@@ -17,7 +17,7 @@ class AddHouseViewController: UIViewController {
     @IBAction func saveHouseButton(_ sender: UIButton) {
         updateHouse()
         if house.isValid() {
-            print(house.name)
+            performSegue(withIdentifier: "HouseEntry", sender: nil)
         } else  {
             let alert = UIAlertController(title: "Invalid House Entry", message: "Please fill out both fields", preferredStyle: .alert)
             let action = UIAlertAction(title: "OK", style: .default) { action in
